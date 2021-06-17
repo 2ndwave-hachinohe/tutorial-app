@@ -6,3 +6,7 @@ ja:
       blog:
         title: タイトル
         body: 本文
+      comment:
+        body: コメント本文
+    labels:
+      comment_submit: コメント投稿

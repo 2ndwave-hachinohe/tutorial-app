@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_040902) do
+ActiveRecord::Schema.define(version: 2021_06_17_011829) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "記事テーブル", force: :cascade do |t|
     t.string "title", null: false, comment: "タイトル"
     t.text "body", null: false, comment: "本文"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "コメント", force: :cascade do |t|
+    t.bigint "blog_id"
+    t.text "body", null: false, comment: "コメント本文"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id"
   end
 
 end

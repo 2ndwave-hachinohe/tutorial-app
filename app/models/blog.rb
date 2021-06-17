@@ -11,4 +11,5 @@
 class Blog < ApplicationRecord
   validates :title, presence: true, length: { minimum: 1, maximum: 50}
   validates :body, presence: true, length: { minimum:10, maximum: 5000 }
+  has_many :comments
 end
