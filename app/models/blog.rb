@@ -12,4 +12,16 @@ class Blog < ApplicationRecord
   validates :title, presence: true, length: { minimum: 1, maximum: 50}
   validates :body, presence: true, length: { minimum:10, maximum: 5000 }
   has_many :comments
+
+  scope :search, -> (params) do
+    scope = self
+    if params[:search_title].present?
+      scope = scope.search_by_title(params[:search_title])
+    end
+    scope
+  end
+
+  scope :search_by_title, -> (value) do
+    where("`title` LIKE ?", "%#{value}%")
+  end
 end

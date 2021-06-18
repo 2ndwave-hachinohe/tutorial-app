@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Blogs</h1>
-
+<%= form_with(path: :blogs_path, local: true, method: :get) do |form| %>
+  <label for="search_title"><%= t('activerecord.attributes.blog.title') %></label><%= form.text_field :search_title, value: params[:search_title] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
 <table>
   <thead>
     <tr>
