@@ -3,7 +3,7 @@
 <h1>Blogs</h1>
 <%= form_with(path: :blogs_path, local: true, method: :get) do |form| %>
   <label for="search_title"><%= t('activerecord.attributes.blog.title') %></label><%= form.text_field :search_title, value: params[:search_title] %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= submit_tag '検索', name: nil %>
 <% end %>
 <table>
   <thead>
@@ -15,11 +15,11 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.created_at.strftime("%Y/%m/%d")%></td>
+        <td><%= blog.created_at.strftime("%Y年%m月%d日")%></td>
         <td><%= blog.title %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (t 'defaults.show'), blog %></td>
+        <td><%= link_to (t 'defaults.edit'), edit_blog_path(blog) %></td>
+        <td><%= link_to (t 'defaults.destroy'), blog, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to (t 'defaults.new'), new_blog_path %>
