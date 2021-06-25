@@ -8,11 +8,16 @@ ja:
   activerecord:
     models:
       blog: 記事
+      user: ユーザー
     attributes:
       blog:
         title: タイトル
         body: 本文
       comment:
         body: コメント本文
+      user:
+        login: ログイン
+        user_id:
+        password:
   labels:
       comment_submit: コメント投稿
