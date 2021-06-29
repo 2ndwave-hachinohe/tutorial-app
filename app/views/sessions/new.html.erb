@@ -1,0 +1,10 @@
+<h1>ログイン</h1>
+<p>Find me in app/views/sessions/login.html.erb</p>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :user %>
+  <%= f.text_field :user %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "login" %>
+<% end %>

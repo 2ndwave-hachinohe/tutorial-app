@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
+  #impressionist :actions=> [:show]
 
   # GET /blogs or /blogs.json
   def index
@@ -8,6 +10,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @blogs = Blog.find(params[:id])
+    #impressionist(@blog, nil, unique: [:session_hash])
   end
 
   # GET /blogs/new
