@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
-    user = User.find_by(user: params[:session][:user_id].downcase)
+    #user = User.find_by(user_id: "test".downcase)値を直接入れる
+    user = User.find_by(user_id: params[:session][:user].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
       redirect_to root_url
